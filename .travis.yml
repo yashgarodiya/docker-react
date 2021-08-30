@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yashgarodiya/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true yashgarodiya/docker-react npm run test
